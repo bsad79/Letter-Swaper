@@ -5,74 +5,104 @@
     </head>
     <body>
         <div>
-            <h1>Letter Swaper</h1>
             <label for="text">Text: </label>
-            <input type="text" name="text" id="text">
+            <input type="text" name="text" id="text" value="Letter Swaper">
             <label for="timer">Interval (ms): </label>
-            <input type="number" name="timer" id="timer">
+            <input type="number" name="timer" id="timer" value="300">
             <div id="fonts">
                 <input type="checkbox" name="font1" id="font1">
-                <label for="font1">'Courier New', Courier, monospace</label>
+                <label for="font1" style="font-family: 'Courier New', Courier, monospace;">
+                    Courier New
+                </label>
                 
                 <input type="checkbox" name="font2" id="font2">
-                <label for="font2">'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif</label>
+                <label for="font2" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                    Franklin Gothic Medium
+                </label>
                 
                 <input type="checkbox" name="font3" id="font3">
-                <label for="font3">'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif</label>
+                <label for="font3" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                    Gill Sans
+                </label>
                 
                 <input type="checkbox" name="font4" id="font4">
-                <label for="font4">'Segoe UI', Tahoma, Geneva, Verdana, sans-serif</label>
+                <label for="font4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    Segoe UI
+                </label>
                 
                 <input type="checkbox" name="font5" id="font5">
-                <label for="font5">'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif</label>
+                <label for="font5" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                    Lucida Sans
+                </label>
                 
                 <input type="checkbox" name="font6" id="font6">
-                <label for="font6">'Times New Roman', Times, serif</label>
+                <label for="font6" style="font-family: 'Times New Roman', Times, serif;">
+                    Times New Roman
+                </label>
                 
                 <input type="checkbox" name="font7" id="font7">
-                <label for="font7">'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif</label>
+                <label for="font7" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                    Trebuchet MS
+                </label>
                 
                 <input type="checkbox" name="font8" id="font8">
-                <label for="font8">Arial, Helvetica, sans-serif</label>
+                <label for="font8" style="font-family: Arial, Helvetica, sans-serif;">
+                    Arial
+                </label>
                 
                 <input type="checkbox" name="font9" id="font9">
-                <label for="font9">Cambria, Cochin, Georgia, Times, 'Times New Roman', serif</label>
+                <label for="font9" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                    Cambria
+                </label>
                 
                 <input type="checkbox" name="font10" id="font10">
-                <label for="font10">Georgia, 'Times New Roman', Times, serif</label>
+                <label for="font10" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    Georgia
+                </label>
                 
                 <input type="checkbox" name="font11" id="font11">
-                <label for="font11">Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif</label>
+                <label for="font11" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                    Impact
+                </label>
                 
                 <input type="checkbox" name="font12" id="font12">
-                <label for="font12">Verdana, Geneva, Tahoma, sans-serif</label>
+                <label for="font12" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                    Verdana
+                </label>
                 
                 <input type="checkbox" name="font13" id="font13">
-                <label for="font13">cursive</label>
+                <label for="font13" style="font-family: cursive;">
+                    cursive
+                </label>
                 
                 <input type="checkbox" name="font14" id="font14">
-                <label for="font14">fantasy</label>
+                <label for="font14" style="font-family: fantasy;">
+                    fantasy
+                </label>
                 
                 <input type="checkbox" name="font15" id="font15">
-                <label for="font15">monospace</label>
+                <label for="font15" style="font-family: monospace;">
+                    monospace
+                </label>
                 
                 <input type="checkbox" name="font16" id="font16">
-                <label for="font16">sans-serif</label>
+                <label for="font16" style="font-family: sans-serif;">
+                    sans-serif
+                </label>
                 
                 <input type="checkbox" name="font17" id="font17">
-                <label for="font17">serif</label>
+                <label for="font17" style="font-family: serif;">
+                    serif
+                </label>
                 
                 <input type="checkbox" name="font18" id="font18">
-                <label for="font18">system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif</label>
+                <label for="font18" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                    system-ui
+                </label>
             </div>
             <button onclick="swap()">Swap!</button>
         </div>
         <div id="result">
-            <h1>T</h1>
-            <h1>e</h1>
-            <h1>s</h1>
-            <h1>t</h1>
-            <h1>e</h1>
         </div>
     </body>
 
@@ -103,26 +133,41 @@
     </style>
 
     <script>
-        let textShow;
+        let textShow = [];
+        let text = document.getElementById("text").value;
+        let timer = document.getElementById("timer").value;
         let i = 1;
         let j = 0;
         let fonts = [];
         console.log(text);
 
         function swap() {
-            let text = document.getElementById("text").value;
+            text = document.getElementById("text").value;
+            timer = document.getElementById("timer").value;
+
+            for (let index = 0; index < document.getElementById("result").children.length; index++) {
+                document.getElementById("result").removeChild(document.getElementById)
+                
+            }
+            
+
+            for (let index = 0; index < text.length; index++) {
+                let letter = document.createElement("h1");
+                letter.innerHTML = text[index];
+                document.getElementById("result").appendChild(letter);
+            }
         }
 
         setInterval(() => {
-            textShow[i].style.fontFamily = fonts[j];
+            text[i].style.fontFamily = fonts[j];
             i++;
             j++;
-            if (i >= textShow.length) {
+            if (i >= text.length) {
                 i = 1;
             }
             if (j > fonts.length) {
                 j = 0;
             }
-        }, 300);
+        }, timer);
     </script>
 </html>
