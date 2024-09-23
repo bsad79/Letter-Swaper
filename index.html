@@ -4,103 +4,105 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <div>
-            <label for="text">Text: </label>
+        <div id="menu">
+            <label for="text" id="labelText">Text: </label>
             <input type="text" name="text" id="text" value="Letter Swaper">
-            <label for="timer">Interval (ms): </label>
-            <input type="number" name="timer" id="timer" value="300">
+            <label for="timer" id="labelTimer">Interval (ms): </label>
+            <input type="number" step="100" name="timer" id="timer" value="300">
             <div id="fonts">
-                <input type="checkbox" name="font1" id="font1">
+                <input type="checkbox" class="checkbox" name="font1" id="font1" checked>
                 <label for="font1" style="font-family: 'Courier New', Courier, monospace;">
                     Courier New
                 </label>
                 
-                <input type="checkbox" name="font2" id="font2">
+                <input type="checkbox" class="checkbox" name="font2" id="font2" checked>
                 <label for="font2" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                     Franklin Gothic Medium
                 </label>
                 
-                <input type="checkbox" name="font3" id="font3">
+                <input type="checkbox" class="checkbox" name="font3" id="font3" checked>
                 <label for="font3" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                     Gill Sans
                 </label>
                 
-                <input type="checkbox" name="font4" id="font4">
+                <input type="checkbox" class="checkbox" name="font4" id="font4" checked>
                 <label for="font4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                     Segoe UI
                 </label>
                 
-                <input type="checkbox" name="font5" id="font5">
+                <input type="checkbox" class="checkbox" name="font5" id="font5" checked>
                 <label for="font5" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
                     Lucida Sans
                 </label>
                 
-                <input type="checkbox" name="font6" id="font6">
+                <input type="checkbox" class="checkbox" name="font6" id="font6" checked>
                 <label for="font6" style="font-family: 'Times New Roman', Times, serif;">
                     Times New Roman
                 </label>
                 
-                <input type="checkbox" name="font7" id="font7">
+                <input type="checkbox" class="checkbox" name="font7" id="font7" checked>
                 <label for="font7" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
                     Trebuchet MS
                 </label>
                 
-                <input type="checkbox" name="font8" id="font8">
+                <input type="checkbox" class="checkbox" name="font8" id="font8" checked>
                 <label for="font8" style="font-family: Arial, Helvetica, sans-serif;">
                     Arial
                 </label>
                 
-                <input type="checkbox" name="font9" id="font9">
+                <input type="checkbox" class="checkbox" name="font9" id="font9" checked>
                 <label for="font9" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
                     Cambria
                 </label>
                 
-                <input type="checkbox" name="font10" id="font10">
+                <input type="checkbox" class="checkbox" name="font10" id="font10" checked>
                 <label for="font10" style="font-family: Georgia, 'Times New Roman', Times, serif;">
                     Georgia
                 </label>
                 
-                <input type="checkbox" name="font11" id="font11">
+                <input type="checkbox" class="checkbox" name="font11" id="font11" checked>
                 <label for="font11" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
                     Impact
                 </label>
                 
-                <input type="checkbox" name="font12" id="font12">
+                <input type="checkbox" class="checkbox" name="font12" id="font12" checked>
                 <label for="font12" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
                     Verdana
                 </label>
                 
-                <input type="checkbox" name="font13" id="font13">
+                <input type="checkbox" class="checkbox" name="font13" id="font13" checked>
                 <label for="font13" style="font-family: cursive;">
                     cursive
                 </label>
                 
-                <input type="checkbox" name="font14" id="font14">
+                <input type="checkbox" class="checkbox" name="font14" id="font14" checked>
                 <label for="font14" style="font-family: fantasy;">
                     fantasy
                 </label>
                 
-                <input type="checkbox" name="font15" id="font15">
+                <input type="checkbox" class="checkbox" name="font15" id="font15" checked>
                 <label for="font15" style="font-family: monospace;">
                     monospace
                 </label>
                 
-                <input type="checkbox" name="font16" id="font16">
+                <input type="checkbox" class="checkbox" name="font16" id="font16" checked>
                 <label for="font16" style="font-family: sans-serif;">
                     sans-serif
                 </label>
                 
-                <input type="checkbox" name="font17" id="font17">
+                <input type="checkbox" class="checkbox" name="font17" id="font17" checked>
                 <label for="font17" style="font-family: serif;">
                     serif
                 </label>
                 
-                <input type="checkbox" name="font18" id="font18">
+                <input type="checkbox" class="checkbox" name="font18" id="font18" checked>
                 <label for="font18" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
                     system-ui
                 </label>
             </div>
-            <button onclick="swap()">Swap!</button>
+            <button onclick="selectAll()" id="selectAll">Select All</button>
+            <button onclick="unselectAll()" id="unselectAll">Unselect All</button>
+            <button onclick="swap()" id="swap">Swap!</button>
         </div>
         <div id="result">
         </div>
@@ -108,27 +110,96 @@
 
     <style type="text/css">
         body {
+            background-color: rgb(0, 68, 255);
+            font-weight: bolder;
+            user-select: none;
             height: 100vh;
             margin: 0;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
         }
 
-        #result {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        #menu {
+            background-color: white;
+            margin: 2.5%;
+            padding: 2.5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+                'labelText text selectAll unselectAll'
+                'labelText text fonts fonts'
+                'labelTimer timer fonts fonts'
+                'labelTimer timer fonts fonts'
+                'swap swap swap swap';
+        }
+
+        label:hover {
+            color: gold;
+        }
+
+        #labelText {
+            grid-area: labelText;
+        }
+
+        #text {
+            grid-area: text;
+        }
+
+        #labelTimer {
+            grid-area: labelTimer;
+        }
+
+        #timer {
+            grid-area: timer;
         }
 
         #fonts {
+            grid-area: fonts;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 4fr 1fr 4fr;
             justify-content: center;
             align-items: center;
         }
 
+        #selectAll {
+            grid-area: selectAll;
+        }
+
+        #unselectAll {
+            grid-area: unselectAll;
+        }
+
+        #swap {
+            grid-area: swap;
+        }
+
+        #result {
+            overflow-x: scroll;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: auto 5% auto 5%;
+        }
+
         h1 {
+            min-width: 2vw;
             font-size: 7em;
+        }
+
+        button {
+            font-size: xx-large;
+            color: black;
+            background-color: white;
+            border: solid 5px white;
+            font-size: large;
+            padding: 5%;
+            transition: 0.5s;
+        }
+
+        button:hover {
+            color: rgb(0, 68, 255);
+            background-color: gold;
         }
     </style>
 
@@ -136,38 +207,74 @@
         let textShow = [];
         let text = document.getElementById("text").value;
         let timer = document.getElementById("timer").value;
+        let fontOptions = document.getElementsByClassName("checkbox");
+        let result = document.getElementById("result");
         let i = 1;
         let j = 0;
         let fonts = [];
-        console.log(text);
+        let interval = 0;
 
+        //Marca todas as opções
+        function selectAll() {
+            for (let index = 0; index < fontOptions.length; index++) {
+                document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = true);
+            }
+        }
+
+        //Desmarca todas as opções
+        function unselectAll() {
+            for (let index = 0; index < fontOptions.length; index++) {
+                document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+            }
+        }
+
+        //Configura e inicia a troca das letras
         function swap() {
             text = document.getElementById("text").value;
             timer = document.getElementById("timer").value;
 
-            for (let index = 0; index < document.getElementById("result").children.length; index++) {
-                document.getElementById("result").removeChild(document.getElementById)
-                
+            //Limpa o texto anterior
+            let size = result.children.length;
+            for (let index = 0; index < size; index++) {
+                result.removeChild(result.children[0])
             }
-            
 
+            //Adiciona o texto novo
             for (let index = 0; index < text.length; index++) {
                 let letter = document.createElement("h1");
                 letter.innerHTML = text[index];
-                document.getElementById("result").appendChild(letter);
+                result.appendChild(letter);
             }
+
+            //Adiciona as fontes selecionadas à lista
+            fonts = [];
+            for (let index = 0; index < fontOptions.length; index++) {
+                if (fontOptions[index].checked) {
+                    fonts.push(fontOptions[index].labels[0].innerText);
+                }
+            }
+
+            //Encerra a troca anterior
+            clearInterval(interval);
+            //Adiciona as novas letras
+            textShow = document.getElementsByTagName("h1");
+            //Inicia a troca das letras
+            interval = setInterval(() => {
+                //Muda a fonte da letra
+                textShow[i].style.fontFamily = fonts[j];
+                i++;
+                j++;
+                //Reinicia quando o texto chegar ao fim
+                if (i >= textShow.length) {
+                    i = 0;
+                }
+                //Reinicia quandos as fontes chegarem ao fim
+                if (j > fonts.length) {
+                    j = 0;
+                }
+            } , timer);
         }
 
-        setInterval(() => {
-            text[i].style.fontFamily = fonts[j];
-            i++;
-            j++;
-            if (i >= text.length) {
-                i = 1;
-            }
-            if (j > fonts.length) {
-                j = 0;
-            }
-        }, timer);
+        swap();
     </script>
 </html>
