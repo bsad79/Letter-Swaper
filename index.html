@@ -2,13 +2,16 @@
     <head>
         <title>Letter Swaper</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="./style.css" type="text/css">
     </head>
     <body>
-        <div id="menu">
+        <div id="drop">
+            <button onclick="swap()" id="swap">Swap!</button>
+        <div id="menu" class="ui transparent input">
             <label for="text" id="labelText">Text: </label>
-            <input type="text" name="text" id="text" value="Letter Swaper">
+            <input type="text" spellcheck="false" name="text" id="text" value="Letter Swaper" onchange="verfify(0)">
             <label for="timer" id="labelTimer">Interval (ms): </label>
-            <input type="number" step="100" name="timer" id="timer" value="300">
+            <input type="number" min="100" step="100" name="timer" id="timer" value="300" onchange="verfify(1)">
             <div id="fonts">
                 <input type="checkbox" class="checkbox" name="font1" id="font1" checked>
                 <label for="font1" style="font-family: 'Courier New', Courier, monospace;">
@@ -102,179 +105,13 @@
             </div>
             <button onclick="selectAll()" id="selectAll">Select All</button>
             <button onclick="unselectAll()" id="unselectAll">Unselect All</button>
-            <button onclick="swap()" id="swap">Swap!</button>
         </div>
+    </div>
         <div id="result">
         </div>
     </body>
 
-    <style type="text/css">
-        body {
-            background-color: rgb(0, 68, 255);
-            font-weight: bolder;
-            user-select: none;
-            height: 100vh;
-            margin: 0;
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-        }
+    
 
-        #menu {
-            background-color: white;
-            margin: 2.5%;
-            padding: 2.5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-areas:
-                'labelText text selectAll unselectAll'
-                'labelText text fonts fonts'
-                'labelTimer timer fonts fonts'
-                'labelTimer timer fonts fonts'
-                'swap swap swap swap';
-        }
-
-        label:hover {
-            color: gold;
-        }
-
-        #labelText {
-            grid-area: labelText;
-        }
-
-        #text {
-            grid-area: text;
-        }
-
-        #labelTimer {
-            grid-area: labelTimer;
-        }
-
-        #timer {
-            grid-area: timer;
-        }
-
-        #fonts {
-            grid-area: fonts;
-            display: grid;
-            grid-template-columns: 1fr 4fr 1fr 4fr;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #selectAll {
-            grid-area: selectAll;
-        }
-
-        #unselectAll {
-            grid-area: unselectAll;
-        }
-
-        #swap {
-            grid-area: swap;
-        }
-
-        #result {
-            overflow-x: scroll;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            margin: auto 5% auto 5%;
-        }
-
-        h1 {
-            min-width: 2vw;
-            font-size: 7em;
-        }
-
-        button {
-            font-size: xx-large;
-            color: black;
-            background-color: white;
-            border: solid 5px white;
-            font-size: large;
-            padding: 5%;
-            transition: 0.5s;
-        }
-
-        button:hover {
-            color: rgb(0, 68, 255);
-            background-color: gold;
-        }
-    </style>
-
-    <script>
-        let textShow = [];
-        let text = document.getElementById("text").value;
-        let timer = document.getElementById("timer").value;
-        let fontOptions = document.getElementsByClassName("checkbox");
-        let result = document.getElementById("result");
-        let i = 1;
-        let j = 0;
-        let fonts = [];
-        let interval = 0;
-
-        //Marca todas as opções
-        function selectAll() {
-            for (let index = 0; index < fontOptions.length; index++) {
-                document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = true);
-            }
-        }
-
-        //Desmarca todas as opções
-        function unselectAll() {
-            for (let index = 0; index < fontOptions.length; index++) {
-                document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
-            }
-        }
-
-        //Configura e inicia a troca das letras
-        function swap() {
-            text = document.getElementById("text").value;
-            timer = document.getElementById("timer").value;
-
-            //Limpa o texto anterior
-            let size = result.children.length;
-            for (let index = 0; index < size; index++) {
-                result.removeChild(result.children[0])
-            }
-
-            //Adiciona o texto novo
-            for (let index = 0; index < text.length; index++) {
-                let letter = document.createElement("h1");
-                letter.innerHTML = text[index];
-                result.appendChild(letter);
-            }
-
-            //Adiciona as fontes selecionadas à lista
-            fonts = [];
-            for (let index = 0; index < fontOptions.length; index++) {
-                if (fontOptions[index].checked) {
-                    fonts.push(fontOptions[index].labels[0].innerText);
-                }
-            }
-
-            //Encerra a troca anterior
-            clearInterval(interval);
-            //Adiciona as novas letras
-            textShow = document.getElementsByTagName("h1");
-            //Inicia a troca das letras
-            interval = setInterval(() => {
-                //Muda a fonte da letra
-                textShow[i].style.fontFamily = fonts[j];
-                i++;
-                j++;
-                //Reinicia quando o texto chegar ao fim
-                if (i >= textShow.length) {
-                    i = 0;
-                }
-                //Reinicia quandos as fontes chegarem ao fim
-                if (j > fonts.length) {
-                    j = 0;
-                }
-            } , timer);
-        }
-
-        swap();
-    </script>
+    <script src="./script.js"></script>
 </html>
