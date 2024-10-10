@@ -75,6 +75,8 @@ function swap() {
 
         //Encerra a troca anterior
         clearInterval(interval);
+        i = 0;
+        j = 0;
         //Adiciona as novas letras
         textShow = document.getElementsByTagName("h2");
         //Inicia a troca das letras
